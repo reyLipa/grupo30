@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package AccesoADatos;
 
 import Entidades.Alumno;
@@ -14,10 +10,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import javax.swing.JOptionPane;
 
-/**
- *
- * @author Isabel
- */
+
 public class AlumnoData {
     
     private Connection conexion=null;
@@ -27,7 +20,7 @@ public class AlumnoData {
     }
     
     public void guardarAlumno(Alumno alumno){
-        String sql="INSERT INTO alumno (dni, apellido, nombre, fechaNacimiento, estado )"
+        String sql="INSERT INTO alumno (dni, apellido, nombre, fechaNac, estado )"
                 + "VALUE(?, ?, ?, ?, ?)";
             
         try {
@@ -49,9 +42,39 @@ public class AlumnoData {
             JOptionPane.showMessageDialog(null, "error al acceder a la tabla alumno"); }
     }
     
-    public void buscarAlumno(){
-        
-        
-    }
-    
+    public Alumno buscarAlumno(int id) {
+        Alumno alumno = null;
+        String sql = "SELECT dni, apellido, nombre, fechaNac FROM alumno WHERE idAlumno = ? AND estado = true";
+        PreparedStatement ps = null;
+        try {
+            ps = conexion.prepareStatement(sql);
+            ps.setInt(1, id);
+            ResultSet rs = ps.executeQuery();
+
+            if (rs.next()) {
+                alumno = new Alumno();
+                alumno.setIdAlumno(id);
+                alumno.setDni(rs.getInt("dni"));
+                alumno.setApellido(rs.getString("apellido"));
+                alumno.setNombre(rs.getString("nombre"));
+                alumno.setFechaNac(rs.getDate("fechaNac").toLocalDate());
+                alumno.setEstado(true);
+
+            } else {
+                JOptionPane.showMessageDialog(null, "No existe el alumno");
+
+            }
+   ps.close();
+} catch (SQLException ex) {
+ JOptionPane.showMessageDialog(null, "Error al acceder a la tabla Alumno "+ex.getMessage()); 
+
 }
+
+return alumno;
+ }
+    
+    
+    
+    
+    
+    }
