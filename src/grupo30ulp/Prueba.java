@@ -24,18 +24,20 @@ public class Prueba {
     public static void main(String[] args) {
         Connection conexion = Conexion.getConexion();
 
-        Alumno Juan = new Alumno(1234567, "Lopez", "Carlos", LocalDate.of(2000, Month.MARCH, 11), true);
+       // Alumno Juan = new Alumno(1234567, "Lopez", "Carlos", LocalDate.of(2000, Month.MARCH, 11), true);
         Alumno Juan1 = new Alumno(1234563, "Perez", "Jorge", LocalDate.of(2010, Month.JULY, 23), true);
         Alumno Juan2 = new Alumno(1234507, "Cortez", "Luisa", LocalDate.of(2011, Month.APRIL, 4), true);
         Alumno Juan3 = new Alumno(12345867, "Manrique", "María", LocalDate.of(2005, Month.MAY, 31), true);
 
         AlumnoData a = new AlumnoData();
-//    a.guardarAlumno(Juan);
+   // a.guardarAlumno(Juan);
 //     a.guardarAlumno(Juan1);
 //      a.guardarAlumno(Juan2);
 //       a.guardarAlumno(Juan3);
-        Alumno alumno = a.buscarAlumno(3);
-        System.out.println("DNI: "+alumno.getDni());
+
+
+        Alumno alumno = a.buscarAlumnoPorDni(1234507);
+        System.out.println("DNI: "+alumno.getNombre());
         System.out.println("Apellido: "+alumno.getApellido());
         
         
