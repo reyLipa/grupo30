@@ -88,7 +88,7 @@ try {
  alumno.setDni(rs.getInt("dni"));
  alumno.setApellido(rs.getString("apellido"));
  alumno.setNombre(rs.getString("nombre"));
- alumno.setFechaNac(rs.getDate("fechaNacimiento").toLocalDate());
+ alumno.setFechaNac(rs.getDate("fechaNac").toLocalDate());
  alumno.setEstado(true);
 
 
