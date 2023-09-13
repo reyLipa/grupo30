@@ -30,6 +30,7 @@ public class MenuPpal extends javax.swing.JFrame {
         jMenu1 = new javax.swing.JMenu();
         jMenu2 = new javax.swing.JMenu();
         jPanel1 = new javax.swing.JPanel();
+        jDEscritorio = new javax.swing.JDesktopPane();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMAlumno = new javax.swing.JMenu();
         jMFormAlum = new javax.swing.JMenuItem();
@@ -48,20 +49,36 @@ public class MenuPpal extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
+        javax.swing.GroupLayout jDEscritorioLayout = new javax.swing.GroupLayout(jDEscritorio);
+        jDEscritorio.setLayout(jDEscritorioLayout);
+        jDEscritorioLayout.setHorizontalGroup(
+            jDEscritorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 841, Short.MAX_VALUE)
+        );
+        jDEscritorioLayout.setVerticalGroup(
+            jDEscritorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 624, Short.MAX_VALUE)
+        );
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 841, Short.MAX_VALUE)
+            .addComponent(jDEscritorio, javax.swing.GroupLayout.Alignment.TRAILING)
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 624, Short.MAX_VALUE)
+            .addComponent(jDEscritorio, javax.swing.GroupLayout.Alignment.TRAILING)
         );
 
         jMAlumno.setText("Alumno");
 
         jMFormAlum.setText("Formulario Alumno");
+        jMFormAlum.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMFormAlumActionPerformed(evt);
+            }
+        });
         jMAlumno.add(jMFormAlum);
 
         jMenuBar1.add(jMAlumno);
@@ -118,6 +135,10 @@ public class MenuPpal extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jMNotasActionPerformed
 
+    private void jMFormAlumActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMFormAlumActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jMFormAlumActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -153,7 +174,12 @@ public class MenuPpal extends javax.swing.JFrame {
         });
     }
 
+    
+    
+    
+    // Gestion Alumnos
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JDesktopPane jDEscritorio;
     private javax.swing.JMenu jMAdm;
     private javax.swing.JMenuItem jMAlumXMat;
     private javax.swing.JMenu jMAlumno;
