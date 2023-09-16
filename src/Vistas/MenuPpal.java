@@ -5,17 +5,16 @@
  */
 package Vistas;
 
-/**
- *
- * @author LAu
- */
+import Entidades.Materia;
+import java.util.TreeSet;
+
 public class MenuPpal extends javax.swing.JFrame {
 
-    /**
-     * Creates new form MenuPpal
-     */
+    public static TreeSet<Materia> listaMaterias;
     public MenuPpal() {
         initComponents();
+       // listaMaterias=new TreeSet<>();
+       cargarMateria();
     }
 
     /**
@@ -108,6 +107,11 @@ public class MenuPpal extends javax.swing.JFrame {
         jMConsultas.setText("Consultas");
 
         jMAlumXMat.setText("Alumnos por materia");
+        jMAlumXMat.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMAlumXMatActionPerformed(evt);
+            }
+        });
         jMConsultas.add(jMAlumXMat);
 
         jMenuBar1.add(jMConsultas);
@@ -138,6 +142,15 @@ public class MenuPpal extends javax.swing.JFrame {
     private void jMFormAlumActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMFormAlumActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jMFormAlumActionPerformed
+
+    private void jMAlumXMatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMAlumXMatActionPerformed
+        jDEscritorio.removeAll();
+        jDEscritorio.repaint();
+        MenuConsultas mConsultas=new MenuConsultas();
+        mConsultas.setVisible(true);
+        jDEscritorio.add(mConsultas);
+        jDEscritorio.moveToFront(mConsultas);
+    }//GEN-LAST:event_jMAlumXMatActionPerformed
 
     /**
      * @param args the command line arguments
@@ -195,4 +208,9 @@ public class MenuPpal extends javax.swing.JFrame {
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
+private void cargarMateria(){
+    listaMaterias.add(new Materia(123, "analisis", 2000, true));
+    listaMaterias.add(new Materia(124, "programacion", 2002, true));
+    listaMaterias.add(new Materia(125, "estadistica", 2000, true));
+}
 }
