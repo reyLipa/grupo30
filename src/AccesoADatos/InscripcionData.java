@@ -7,6 +7,7 @@ package AccesoADatos;
 
 import Entidades.Alumno;
 import Entidades.Inscripcion;
+import Entidades.Materia;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 
@@ -25,6 +26,8 @@ import javax.swing.JOptionPane;
  */
 public class InscripcionData {
     private Connection conexion=null;
+    private AlumnoData aluData=new AlumnoData();
+    private MateriaData matData =new MateriaData();
 
     public InscripcionData() {
         conexion = Conexion.getConexion();
@@ -32,7 +35,7 @@ public class InscripcionData {
     
     public void guardarInscripcion(Inscripcion inscripto){
         String sql="INSERT INTO inscripcion( nota, idAlumno, idMateria)"
-                + "VALUE(?, ?, ?, ?)";
+                + "VALUE(?, ?, ?)";
         
         try {
             PreparedStatement ps=conexion.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
@@ -68,14 +71,17 @@ String sql = "SELECT * FROM inscripcion";
 PreparedStatement ps = conexion.prepareStatement(sql);
 ResultSet rs = ps.executeQuery();
 while (rs.next()) {
-Inscripcion inscripcion = new Inscripcion();
+    Inscripcion inscripcion = new Inscripcion();
 
-inscripcion.setIdInscripcion(rs.getInt("IdInscripcion"));
-inscripcion.setNota(rs.getDouble("nota"));
-inscripcion.getAlumno().setIdAlumno(rs.getInt("IdAlumno"));
-inscripcion.getMateria().setIdMateria(rs.getInt("IdMateria"));
+    inscripcion.setIdInscripcion(rs.getInt("IdInscripcion"));
+    inscripcion.setNota(rs.getDouble("nota"));
+    Alumno alu=aluData.buscarAlumno(rs.getInt("IdAlumno"));
+    Materia mat=matData.buscarMateria(rs.getInt("IdMateria"));
+    inscripcion.setAlumno(alu);
+    inscripcion.setMateria(mat);
 
-inscripto.add(inscripcion);
+
+    inscripto.add(inscripcion); 
 }
 ps.close();
 

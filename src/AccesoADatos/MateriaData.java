@@ -51,7 +51,7 @@ public class MateriaData {
     
     public Materia buscarMateria(int id) {
         Materia materia = null;
-        String sql = "SELECT nombre, anio, estado WHERE idMateria = ? AND estado = true";
+        String sql = "SELECT nombre, anio, estado FROM materia WHERE idMateria = ? AND estado = true";
         PreparedStatement ps = null;
         try {
             ps = conexion.prepareStatement(sql);
