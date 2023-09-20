@@ -113,9 +113,9 @@ public class Prueba {
 //        m.guardarMateria(mat2);
 //        m.guardarMateria(mat3);
 //        m.guardarMateria(mat4);
-        
-        m.modificarMateria(mat4);
-        //m.eliminarMateria(5);
+//        
+//        m.modificarMateria(mat4);
+//        //m.eliminarMateria(5);
         
           // System.out.println(m.listarMaterias());
             
