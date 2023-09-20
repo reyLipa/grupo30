@@ -5,17 +5,19 @@
  */
 package Vistas;
 
+import AccesoADatos.AlumnoData;
+
 /**
  *
  * @author LAu
  */
 public class ViewAlumno extends javax.swing.JInternalFrame {
 
-    /**
-     * Creates new form ViewAlumno
-     */
-    public ViewAlumno() {
+    private AlumnoData ad;
+    
+    public ViewAlumno(AlumnoData ad) {
         initComponents();
+        this.ad=ad;
     }
 
     /**
