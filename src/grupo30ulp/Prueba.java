@@ -1,4 +1,5 @@
-package grupo30ulp;
+﻿package grupo30ulp;
+
 
 import java.time.LocalDate;
 import java.time.Month;
@@ -13,6 +14,7 @@ import Entidades.Materia;
 public class Prueba {
 
     public static void main(String[] args) {
+
 
 ////GUARDAR  ALUMNO
 //
@@ -56,11 +58,13 @@ public class Prueba {
 //        Materia mat4 = new Materia("Biologia", 2018, true);
         //      MateriaData m = new MateriaData();
 //        
+
 //        m.guardarMateria(mat1);
 //        m.guardarMateria(mat2);
 //        m.guardarMateria(mat3);
 //        m.guardarMateria(mat4);
 //        
+
 // //BUSCAR MATERIA 
 //       
 //        Materia materiaEncontrada = m.buscarMateria(4);
@@ -120,5 +124,7 @@ public class Prueba {
 //            System.out.println("nombre: "+alumnos.getNombre());
 //            System.out.println("Apellido: "+alumnos.getApellido());
 //           
+
+
     }
 }

@@ -1,4 +1,4 @@
-
+﻿
 package Vistas;
 
 import AccesoADatos.AlumnoData;
@@ -16,6 +16,7 @@ public class MenuPpal extends javax.swing.JFrame {
         ad = new AlumnoData();
         md = new MateriaData();
         id = new InscripcionData();
+
     }
 
     @SuppressWarnings("unchecked")
@@ -158,16 +159,15 @@ public class MenuPpal extends javax.swing.JFrame {
         
     }//GEN-LAST:event_jMFormAlumActionPerformed
 
-    private void jMInscripcionesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMInscripcionesActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jMInscripcionesActionPerformed
-
-    private void jMFormMatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMFormMatActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jMFormMatActionPerformed
 
     private void jMAlumXMatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMAlumXMatActionPerformed
-        // TODO add your handling code here:
+        jDEscritorio.removeAll();
+        jDEscritorio.repaint();
+        MenuConsultas mConsultas=new MenuConsultas();
+        mConsultas.setVisible(true);
+        jDEscritorio.add(mConsultas);
+        jDEscritorio.moveToFront(mConsultas);
+
     }//GEN-LAST:event_jMAlumXMatActionPerformed
 
     /**
@@ -227,4 +227,9 @@ public class MenuPpal extends javax.swing.JFrame {
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
+private void cargarMateria(){
+    listaMaterias.add(new Materia(123, "analisis", 2000, true));
+    listaMaterias.add(new Materia(124, "programacion", 2002, true));
+    listaMaterias.add(new Materia(125, "estadistica", 2000, true));
+}
 }

@@ -1,16 +1,32 @@
+
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
 package AccesoADatos;
 
+import Entidades.Alumno;
+import Entidades.Inscripcion;
+import Entidades.Materia;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
+
+
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
-import Entidades.Alumno;
-import Entidades.Inscripcion;
-import Entidades.Materia;
+
+/**
+ *
+ * @author Isabel
+ */
 
 public class InscripcionData {
 
@@ -21,8 +37,11 @@ public class InscripcionData {
     public InscripcionData() {
         conexion = Conexion.getConexion();
     }
-//GUARDAR INSCRIPCION
-   public void guardarInscripcion(Inscripcion inscripto) {
+
+
+
+    public void guardarInscripcion(Inscripcion inscripto) {
+
         String sql = "INSERT INTO inscripcion( nota, idAlumno, idMateria)"
                 + "VALUE(?, ?, ?)";
 
@@ -43,6 +62,7 @@ public class InscripcionData {
             ps.close();
 
         } catch (SQLException ex) {
+
             JOptionPane.showMessageDialog(null, " Error al acceder a la tabla Inscripto " + ex.getMessage());
         }
      
@@ -75,7 +95,6 @@ public class InscripcionData {
 
 //OBTENER INSCRIPCION POR ALUMNO
     public List<Inscripcion> obtenerInscripcionesPorAlumno(int idAlumno) {
-
         ArrayList<Inscripcion> inscripto = new ArrayList<>();
         String sql = "SELECT * FROM inscripcion WHERE idAlumno=?";
         try {
@@ -106,6 +125,12 @@ public class InscripcionData {
         }
         return inscripto;
     }
+
+
+
+   
+
+
 
 //OBTENER MATERIAS CURSADAS
 
@@ -216,6 +241,5 @@ public class InscripcionData {
         return alumnos;
     }
 
-    
 
 }

@@ -2,8 +2,8 @@
 package Entidades;
 
 
+public class Materia implements Comparable<Materia> {
 
-    public class Materia {
     
     private int idMateria;
     private String nombre;
@@ -63,7 +63,17 @@ package Entidades;
         return "Materia{" + "idMateria=" + idMateria + ", nombre=" + nombre + ", anio=" + anio + ", estado=" + estado + '}';
     }
 
-    
+    @Override
+    public int compareTo(Materia t) {
+        if (idMateria==t.idMateria) {
+            return 0;
+        }else if(idMateria>t.idMateria){
+            return 1;
+        }else{
+            return -1;
+        }
+    }
+
     
     
 }

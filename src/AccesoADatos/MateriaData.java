@@ -1,4 +1,13 @@
+﻿
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
 package AccesoADatos;
+
+import Entidades.Alumno;
+import Entidades.Materia;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -8,7 +17,8 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.JOptionPane;
-import Entidades.Materia;
+
+
 
 public class MateriaData {
 
@@ -41,7 +51,7 @@ public class MateriaData {
     }
 ///BUSCAR MATERIA
 
-    public Materia buscarMateria(int id) {
+     public Materia buscarMateria(int id) {
         Materia materia = null;
         String sql = "SELECT nombre, anio, estado FROM materia WHERE idMateria = ? AND estado = true";
         PreparedStatement ps = null;
@@ -49,6 +59,7 @@ public class MateriaData {
             ps = conexion.prepareStatement(sql);
             ps.setInt(1, id);
             ResultSet rs = ps.executeQuery();
+
             if (rs.next()) {
                 materia = new Materia();
                 materia.setIdMateria(id);
@@ -126,4 +137,5 @@ public class MateriaData {
         }
         return materias;
     }
+
 }
