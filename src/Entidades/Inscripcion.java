@@ -1,29 +1,30 @@
 
 package Entidades;
 
+
 public class Inscripcion {
- 
+    
     private int idInscripcion;
-    private double nota;
     private Alumno alumno;
     private Materia materia;
+    private double nota;
 
-    public Inscripcion(int idInscripcion, double nota, Alumno alumno, Materia materia) {
+    public Inscripcion(int idInscripcion, Alumno alumno, Materia materia, double nota) {
         this.idInscripcion = idInscripcion;
-        this.nota = nota;
         this.alumno = alumno;
         this.materia = materia;
+        this.nota = nota;
     }
 
-    public Inscripcion(double nota, Alumno alumno, Materia materia) {
-        this.nota = nota;
+    public Inscripcion(Alumno alumno, Materia materia, double nota) {
         this.alumno = alumno;
         this.materia = materia;
+        this.nota = nota;
     }
 
     public Inscripcion() {
     }
-
+    
     public int getIdInscripcion() {
         return idInscripcion;
     }
@@ -58,8 +59,7 @@ public class Inscripcion {
 
     @Override
     public String toString() {
-        return "Inscripcion{" + "nota=" + nota + ", alumno=" + alumno + ", materia=" + materia + '}';
-    }
+        return "Inscripcion{" + "nota=" + nota + ", alumno=" + alumno + ", materia=" + materia + '}'; }
     
     
 }

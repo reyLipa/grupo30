@@ -1,7 +1,9 @@
 
 package Entidades;
 
-public class Materia {
+
+
+    public class Materia {
     
     private int idMateria;
     private String nombre;
@@ -58,8 +60,10 @@ public class Materia {
 
     @Override
     public String toString() {
-        return "Materia{" + "idMateria=" + idMateria + ", nombre=" + nombre + ", anio=" + anio + '}';
+        return "Materia{" + "idMateria=" + idMateria + ", nombre=" + nombre + ", anio=" + anio + ", estado=" + estado + '}';
     }
+
+    
     
     
 }
