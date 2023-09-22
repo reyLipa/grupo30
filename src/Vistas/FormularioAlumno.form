@@ -66,8 +66,7 @@
                                   </Group>
                                   <EmptySpace type="separate" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="jCheckBox1" min="-2" max="-2" attributes="0"/>
-                                      <Group type="102" alignment="0" attributes="0">
+                                      <Group type="102" attributes="0">
                                           <Group type="103" groupAlignment="0" max="-2" attributes="0">
                                               <Component id="jTDNI" alignment="0" min="-2" pref="193" max="-2" attributes="0"/>
                                               <Component id="jTApellido" alignment="0" max="32767" attributes="0"/>
@@ -76,12 +75,13 @@
                                           <EmptySpace max="-2" attributes="0"/>
                                           <Component id="jBBuscar" min="-2" max="-2" attributes="0"/>
                                       </Group>
+                                      <Component id="jREstado" alignment="0" min="-2" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
                               <Group type="102" alignment="0" attributes="0">
                                   <Component id="jLabel6" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace type="separate" max="-2" attributes="0"/>
-                                  <Component id="jDateChooser1" min="-2" pref="149" max="-2" attributes="0"/>
+                                  <Component id="jDFechaDeNacimiento" min="-2" pref="149" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                       </Group>
@@ -125,17 +125,17 @@
                           <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="51" max="-2" attributes="0"/>
                           <Component id="jLabel4" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace min="-2" pref="38" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="36" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
                               <Component id="jLabel5" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="jCheckBox1" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="jREstado" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="1" attributes="0">
                       <Component id="jLabel6" min="-2" max="-2" attributes="0"/>
-                      <Component id="jDateChooser1" min="-2" max="-2" attributes="0"/>
+                      <Component id="jDFechaDeNacimiento" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
@@ -144,7 +144,7 @@
                       <Component id="jBBaja" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="jBSalir" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace pref="25" max="32767" attributes="0"/>
+                  <EmptySpace pref="23" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -190,11 +190,6 @@
         </Component>
         <Component class="javax.swing.JTextField" name="jTNombre">
         </Component>
-        <Component class="javax.swing.JCheckBox" name="jCheckBox1">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="Activo "/>
-          </Properties>
-        </Component>
         <Component class="javax.swing.JButton" name="jBBuscar">
           <Properties>
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
@@ -202,6 +197,9 @@
             </Property>
             <Property name="text" type="java.lang.String" value="Buscar"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jBBuscarActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="jBAlta">
           <Properties>
@@ -210,6 +208,9 @@
             </Property>
             <Property name="text" type="java.lang.String" value="Alta"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jBAltaActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="jBModificar">
           <Properties>
@@ -278,7 +279,12 @@
             <Property name="text" type="java.lang.String" value="Fecha de nacimiento"/>
           </Properties>
         </Component>
-        <Component class="com.toedter.calendar.JDateChooser" name="jDateChooser1">
+        <Component class="com.toedter.calendar.JDateChooser" name="jDFechaDeNacimiento">
+        </Component>
+        <Component class="javax.swing.JRadioButton" name="jREstado">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="jRadioButton1"/>
+          </Properties>
         </Component>
       </SubComponents>
     </Container>
