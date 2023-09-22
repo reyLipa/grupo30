@@ -259,5 +259,6 @@ private void cargarMateria(){
 //    listaMaterias.add(new Materia(123, "analisis", 2000, true));
 //    listaMaterias.add(new Materia(124, "programacion", 2002, true));
 //    listaMaterias.add(new Materia(125, "estadistica", 2000, true));
+//
 }
 }
