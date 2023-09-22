@@ -11,9 +11,9 @@ import java.util.ArrayList;
 import java.util.List;
 import javax.swing.JOptionPane;
 
-public class FormularioDeInscripcion extends javax.swing.JInternalFrame {
+public class ManejoDeInscripciones extends javax.swing.JInternalFrame {
 
-    public FormularioDeInscripcion() {
+    public ManejoDeInscripciones() {
         initComponents();
         cargarCombo();
     }
@@ -34,7 +34,9 @@ public class FormularioDeInscripcion extends javax.swing.JInternalFrame {
         jCbSeleccioneUnAlumno = new javax.swing.JComboBox<>();
         jTSeleccioneUnAlumno = new javax.swing.JTextField();
         jTFormularioDeInscripción = new javax.swing.JTextField();
+        jSeparator1 = new javax.swing.JSeparator();
 
+        jBSalir.setForeground(new java.awt.Color(0, 0, 0));
         jBSalir.setText("Salir");
         jBSalir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -42,6 +44,7 @@ public class FormularioDeInscripcion extends javax.swing.JInternalFrame {
             }
         });
 
+        jBAnularInscripcion.setForeground(new java.awt.Color(0, 0, 0));
         jBAnularInscripcion.setText("Anular inscripción");
         jBAnularInscripcion.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -49,6 +52,7 @@ public class FormularioDeInscripcion extends javax.swing.JInternalFrame {
             }
         });
 
+        jBIncribir.setForeground(new java.awt.Color(0, 0, 0));
         jBIncribir.setText("Inscribir");
         jBIncribir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -82,6 +86,7 @@ public class FormularioDeInscripcion extends javax.swing.JInternalFrame {
         });
         jScrollPane1.setViewportView(jTListadoMaterias);
 
+        jRMateriasNoInscriptas.setForeground(new java.awt.Color(0, 0, 0));
         jRMateriasNoInscriptas.setText("Materias no Inscriptas");
         jRMateriasNoInscriptas.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -89,6 +94,7 @@ public class FormularioDeInscripcion extends javax.swing.JInternalFrame {
             }
         });
 
+        jRMateriasIncriptas.setForeground(new java.awt.Color(0, 0, 0));
         jRMateriasIncriptas.setText("Materias Inscriptas");
         jRMateriasIncriptas.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -106,6 +112,7 @@ public class FormularioDeInscripcion extends javax.swing.JInternalFrame {
             }
         });
 
+        jTSeleccioneUnAlumno.setForeground(new java.awt.Color(0, 0, 0));
         jTSeleccioneUnAlumno.setText("Seleccione un alumno:");
 
         jTFormularioDeInscripción.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
@@ -135,7 +142,9 @@ public class FormularioDeInscripcion extends javax.swing.JInternalFrame {
                                 .addGroup(jPanel1Layout.createSequentialGroup()
                                     .addComponent(jTSeleccioneUnAlumno, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addGap(84, 84, 84)
-                                    .addComponent(jCbSeleccioneUnAlumno, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                    .addComponent(jCbSeleccioneUnAlumno, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGap(0, 0, Short.MAX_VALUE))
+                                .addComponent(jSeparator1)))
                         .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
                             .addContainerGap()
                             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -152,7 +161,9 @@ public class FormularioDeInscripcion extends javax.swing.JInternalFrame {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addComponent(jTFormularioDeInscripción, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(24, 24, 24)
+                .addGap(2, 2, 2)
+                .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 4, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jTSeleccioneUnAlumno, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jCbSeleccioneUnAlumno, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -236,6 +247,7 @@ public class FormularioDeInscripcion extends javax.swing.JInternalFrame {
     private javax.swing.JRadioButton jRMateriasIncriptas;
     private javax.swing.JRadioButton jRMateriasNoInscriptas;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JSeparator jSeparator1;
     private javax.swing.JTextField jTFormularioDeInscripción;
     private javax.swing.JTable jTListadoMaterias;
     private javax.swing.JTextField jTSeleccioneUnAlumno;

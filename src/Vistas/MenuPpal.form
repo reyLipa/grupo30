@@ -65,12 +65,12 @@
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMInscripcionesActionPerformed"/>
               </Events>
             </MenuItem>
-            <MenuItem class="javax.swing.JMenuItem" name="jMNotas">
+            <MenuItem class="javax.swing.JMenuItem" name="jMManipulacionDeNotas">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Manipulaci&#xf3;n de notas"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMNotasActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMManipulacionDeNotasActionPerformed"/>
               </Events>
             </MenuItem>
           </SubComponents>

@@ -1,11 +1,13 @@
-﻿
+
 package Vistas;
 
 import AccesoADatos.AlumnoData;
 import AccesoADatos.InscripcionData;
 import AccesoADatos.MateriaData;
+import Entidades.Materia;
 
 public class MenuPpal extends javax.swing.JFrame {
+    
     
     private AlumnoData ad;
     private MateriaData md;
@@ -16,10 +18,11 @@ public class MenuPpal extends javax.swing.JFrame {
         ad = new AlumnoData();
         md = new MateriaData();
         id = new InscripcionData();
+        cargarMateria();
+        
 
     }
-
-    @SuppressWarnings("unchecked")
+   @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
@@ -34,7 +37,7 @@ public class MenuPpal extends javax.swing.JFrame {
         jMFormMat = new javax.swing.JMenuItem();
         jMAdm = new javax.swing.JMenu();
         jMInscripciones = new javax.swing.JMenuItem();
-        jMNotas = new javax.swing.JMenuItem();
+        jMManipulacionDeNotas = new javax.swing.JMenuItem();
         jMConsultas = new javax.swing.JMenu();
         jMAlumXMat = new javax.swing.JMenuItem();
         jMenu7 = new javax.swing.JMenu();
@@ -101,13 +104,13 @@ public class MenuPpal extends javax.swing.JFrame {
         });
         jMAdm.add(jMInscripciones);
 
-        jMNotas.setText("Manipulación de notas");
-        jMNotas.addActionListener(new java.awt.event.ActionListener() {
+        jMManipulacionDeNotas.setText("Manipulación de notas");
+        jMManipulacionDeNotas.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMNotasActionPerformed(evt);
+                jMManipulacionDeNotasActionPerformed(evt);
             }
         });
-        jMAdm.add(jMNotas);
+        jMAdm.add(jMManipulacionDeNotas);
 
         jMenuBar1.add(jMAdm);
 
@@ -144,31 +147,56 @@ public class MenuPpal extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jMNotasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMNotasActionPerformed
+    private void jMManipulacionDeNotasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMManipulacionDeNotasActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jMNotasActionPerformed
+        jDEscritorio.removeAll();
+        jDEscritorio.repaint();
+        ManipulacionDeNotas  mNot =new  ManipulacionDeNotas();
+        mNot.setVisible(true);
+        jDEscritorio.add(mNot);
+        jDEscritorio.moveToFront(mNot); 
+        
+    }//GEN-LAST:event_jMManipulacionDeNotasActionPerformed
 
     private void jMFormAlumActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMFormAlumActionPerformed
       jDEscritorio.removeAll();
       jDEscritorio.repaint();
-      
-      jDEscritorio.add(vap);
-      jDEscritorio.moveToFront(vap);
-// TODO add your handling code here:
-        
-        
+      FormularioAlumno fAlu = new FormularioAlumno(ad);
+      fAlu.setVisible(true);
+      jDEscritorio.add(fAlu);
+      jDEscritorio.moveToFront(fAlu);
+// TODO add your handling code here:   
     }//GEN-LAST:event_jMFormAlumActionPerformed
-
 
     private void jMAlumXMatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMAlumXMatActionPerformed
         jDEscritorio.removeAll();
         jDEscritorio.repaint();
-        MenuConsultas mConsultas=new MenuConsultas();
+        AlumnosPorMateria mConsultas=new AlumnosPorMateria();
         mConsultas.setVisible(true);
         jDEscritorio.add(mConsultas);
         jDEscritorio.moveToFront(mConsultas);
 
     }//GEN-LAST:event_jMAlumXMatActionPerformed
+
+    private void jMInscripcionesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMInscripcionesActionPerformed
+       jDEscritorio.removeAll();
+        jDEscritorio.repaint();
+        ManejoDeInscripciones  fCOns =new  ManejoDeInscripciones();
+        fCOns.setVisible(true);
+        jDEscritorio.add(fCOns);
+        jDEscritorio.moveToFront(fCOns); 
+// TODO add your handling code here:
+    }//GEN-LAST:event_jMInscripcionesActionPerformed
+
+    private void jMFormMatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMFormMatActionPerformed
+        // TODO add your handling code here:
+        jDEscritorio.removeAll();
+        jDEscritorio.repaint();
+        FormularioDerMateria fMate =new  FormularioDerMateria();
+        fMate.setVisible(true);
+        jDEscritorio.add(fMate);
+        jDEscritorio.moveToFront(fMate); 
+    }//GEN-LAST:event_jMFormMatActionPerformed
 
     /**
      * @param args the command line arguments
@@ -219,8 +247,8 @@ public class MenuPpal extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMFormAlum;
     private javax.swing.JMenuItem jMFormMat;
     private javax.swing.JMenuItem jMInscripciones;
+    private javax.swing.JMenuItem jMManipulacionDeNotas;
     private javax.swing.JMenu jMMateria;
-    private javax.swing.JMenuItem jMNotas;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu7;
@@ -228,8 +256,8 @@ public class MenuPpal extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
 private void cargarMateria(){
-    listaMaterias.add(new Materia(123, "analisis", 2000, true));
-    listaMaterias.add(new Materia(124, "programacion", 2002, true));
-    listaMaterias.add(new Materia(125, "estadistica", 2000, true));
+//    listaMaterias.add(new Materia(123, "analisis", 2000, true));
+//    listaMaterias.add(new Materia(124, "programacion", 2002, true));
+//    listaMaterias.add(new Materia(125, "estadistica", 2000, true));
 }
 }

@@ -2,10 +2,10 @@
 package Vistas;
 
 
-public class CargaDeNotas extends javax.swing.JInternalFrame {
+public class ManipulacionDeNotas extends javax.swing.JInternalFrame {
 
     
-    public CargaDeNotas() {
+    public ManipulacionDeNotas() {
         initComponents();
     }
 

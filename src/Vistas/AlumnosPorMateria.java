@@ -9,12 +9,12 @@ package Vistas;
  *
  * @author Isabel
  */
-public class MenuConsultas extends javax.swing.JInternalFrame {
+public class AlumnosPorMateria extends javax.swing.JInternalFrame {
 
     /**
      * Creates new form MenuConsultas
      */
-    public MenuConsultas() {
+    public AlumnosPorMateria() {
         initComponents();
     }
 
@@ -34,9 +34,11 @@ public class MenuConsultas extends javax.swing.JInternalFrame {
         jtMaterias = new javax.swing.JTable();
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(0, 0, 0));
         jLabel1.setText("Listado de Alumnos Por Materia");
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(0, 0, 0));
         jLabel2.setText("Seleccione Una Materia");
 
         jtMateria.addActionListener(new java.awt.event.ActionListener() {
@@ -73,9 +75,9 @@ public class MenuConsultas extends javax.swing.JInternalFrame {
                         .addGap(36, 36, 36)
                         .addComponent(jtMateria, javax.swing.GroupLayout.PREFERRED_SIZE, 246, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(36, 36, 36)
+                        .addContainerGap()
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 452, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(57, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
