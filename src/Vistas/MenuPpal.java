@@ -192,7 +192,7 @@ public class MenuPpal extends javax.swing.JFrame {
         // TODO add your handling code here:
         jDEscritorio.removeAll();
         jDEscritorio.repaint();
-        FormularioDerMateria fMate =new  FormularioDerMateria();
+        FormularioDerMateria fMate =new  FormularioDerMateria(md);
         fMate.setVisible(true);
         jDEscritorio.add(fMate);
         jDEscritorio.moveToFront(fMate); 
