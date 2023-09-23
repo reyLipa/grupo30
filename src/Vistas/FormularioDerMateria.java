@@ -1,21 +1,27 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package Vistas;
 
-/**
- *
- * @author URSULA
- */
+import AccesoADatos.AlumnoData;
+import AccesoADatos.InscripcionData;
+import AccesoADatos.MateriaData;
+import Entidades.Materia;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
+
 public class FormularioDerMateria extends javax.swing.JInternalFrame {
 
-    /**
-     * Creates new form FormularioPorMateria
-     */
-    public FormularioDerMateria() {
+     DefaultTableModel tablaMateriaVista= new DefaultTableModel(){
+        private boolean isCellEditable(){
+            return false;
+        }
+    };
+    
+    private MateriaData md;
+    
+    public FormularioDerMateria(MateriaData md) {
         initComponents();
+        this.md=md;
+        cabecera();
     }
 
     /**
@@ -37,52 +43,102 @@ public class FormularioDerMateria extends javax.swing.JInternalFrame {
         jTAño = new javax.swing.JTextField();
         jTNombre = new javax.swing.JTextField();
         jBBuscar = new javax.swing.JButton();
+        jrbEstado = new javax.swing.JRadioButton();
+        jSeparator1 = new javax.swing.JSeparator();
+        jPanel2 = new javax.swing.JPanel();
+        jBNuevo = new javax.swing.JButton();
         jBEliminar = new javax.swing.JButton();
         jBGuardar = new javax.swing.JButton();
-        jBNuevo = new javax.swing.JButton();
         jBSalir = new javax.swing.JButton();
-        jRadioButton1 = new javax.swing.JRadioButton();
-        jSeparator1 = new javax.swing.JSeparator();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        TablaMateria = new javax.swing.JTable();
 
         jLabel1.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(0, 0, 0));
         jLabel1.setText("Materia");
 
-        jLabel2.setForeground(new java.awt.Color(0, 0, 0));
         jLabel2.setText("Codigo");
 
-        jLabel3.setForeground(new java.awt.Color(0, 0, 0));
         jLabel3.setText("Nombre");
 
-        jLabel4.setForeground(new java.awt.Color(0, 0, 0));
         jLabel4.setText("Año");
 
-        jLabel5.setForeground(new java.awt.Color(0, 0, 0));
         jLabel5.setText("Estado");
 
-        jBBuscar.setForeground(new java.awt.Color(0, 0, 0));
         jBBuscar.setText("Buscar");
+        jBBuscar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBBuscarActionPerformed(evt);
+            }
+        });
 
-        jBEliminar.setForeground(new java.awt.Color(0, 0, 0));
-        jBEliminar.setText("Eliminar");
-
-        jBGuardar.setForeground(new java.awt.Color(0, 0, 0));
-        jBGuardar.setText("Guardar");
-
-        jBNuevo.setForeground(new java.awt.Color(0, 0, 0));
         jBNuevo.setText("Nuevo");
+        jBNuevo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBNuevoActionPerformed(evt);
+            }
+        });
 
-        jBSalir.setForeground(new java.awt.Color(0, 0, 0));
+        jBEliminar.setText("Eliminar");
+        jBEliminar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBEliminarActionPerformed(evt);
+            }
+        });
+
+        jBGuardar.setText("Guardar");
+        jBGuardar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBGuardarActionPerformed(evt);
+            }
+        });
+
         jBSalir.setText("Salir");
 
-        jRadioButton1.setForeground(new java.awt.Color(0, 0, 0));
-        jRadioButton1.setText("jRadioButton1");
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(38, 38, 38)
+                .addComponent(jBNuevo)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jBEliminar)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jBGuardar)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jBSalir)
+                .addContainerGap(18, Short.MAX_VALUE))
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jBNuevo)
+                    .addComponent(jBEliminar)
+                    .addComponent(jBGuardar)
+                    .addComponent(jBSalir))
+                .addContainerGap())
+        );
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addGap(31, 31, 31)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addComponent(jLabel1)
+                        .addGap(212, 212, 212))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jSeparator1, javax.swing.GroupLayout.DEFAULT_SIZE, 402, Short.MAX_VALUE)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(0, 0, Short.MAX_VALUE)
+                                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(40, 40, 40))))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addGap(32, 32, 32)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel4)
@@ -100,31 +156,13 @@ public class FormularioDerMateria extends javax.swing.JInternalFrame {
                                 .addComponent(jTCodigo, javax.swing.GroupLayout.DEFAULT_SIZE, 132, Short.MAX_VALUE))
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGap(84, 84, 84)
-                                .addComponent(jRadioButton1))
+                                .addComponent(jrbEstado))
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGap(78, 78, 78)
                                 .addComponent(jTAño)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jBBuscar)))
                 .addGap(61, 61, 61))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addGap(39, 39, 39)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel1)
-                        .addGap(212, 212, 212))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jSeparator1, javax.swing.GroupLayout.DEFAULT_SIZE, 394, Short.MAX_VALUE)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(jBNuevo)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jBEliminar)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jBGuardar)
-                                .addGap(18, 18, 18)
-                                .addComponent(jBSalir)))
-                        .addGap(40, 40, 40))))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -149,32 +187,126 @@ public class FormularioDerMateria extends javax.swing.JInternalFrame {
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5)
-                    .addComponent(jRadioButton1))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 32, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jBNuevo)
-                    .addComponent(jBEliminar)
-                    .addComponent(jBGuardar)
-                    .addComponent(jBSalir))
-                .addGap(37, 37, 37))
+                    .addComponent(jrbEstado))
+                .addGap(18, 18, 18)
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
+
+        TablaMateria.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane1.setViewportView(TablaMateria);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 425, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(29, 29, 29))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void jBBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBBuscarActionPerformed
+        // TODO add your handling code here:
+         
+        int id=Integer.parseInt(jTCodigo.getText());
+       
+        for(Materia m: md.listarMaterias()){
+            if( id ==m.getIdMateria()){
+                jTCodigo.setText(id+"");
+                jTNombre.setText(m.getNombre());
+                jTAño.setText(m.getAnio()+"");
+                if(m.isEstado()==true){
+                jrbEstado.setSelected(true);
+                }else
+                    jrbEstado.setSelected(false);
+                cargarTabla(id);
+                
+            }            
+       }
+        JOptionPane.showMessageDialog(null, "Materia Encontrada");
+    }//GEN-LAST:event_jBBuscarActionPerformed
+
+    private void jBGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBGuardarActionPerformed
+        // TODO add your handling code here:
+         int anio =0;
+        String nombre=jTNombre.getText();
+        JOptionPane.showMessageDialog(null,jTAño.getText());
+        //puse un try porque me daba error al parsear
+        try{
+         anio= Integer.parseInt(jTAño.getText());
+        }catch (NumberFormatException ex){
+            JOptionPane.showMessageDialog(null,"El numero es "+ jTAño.getText()+"..."+ex.getMessage());
+             
+        }
+        //int a = 111;
+        boolean estado=jrbEstado.isSelected();
+        Materia materia =new Materia(nombre,anio,estado);                
+        md.guardarMateria(materia);
+        JOptionPane.showMessageDialog(null,"Materia Guardada");
+        for(Materia m:md.listarMaterias()){
+        if(nombre==m.getNombre() && anio==m.getAnio() && estado==m.isEstado()){
+            int id=m.getIdMateria();
+            cargarTabla(id);
+        }
+    }
+    }//GEN-LAST:event_jBGuardarActionPerformed
+
+    private void jBNuevoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBNuevoActionPerformed
+        // TODO add your handling code here:
+         reiniciar();
+       borrarFilas();
+    }//GEN-LAST:event_jBNuevoActionPerformed
+
+    private void jBEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBEliminarActionPerformed
+        // TODO add your handling code here:
+         int id=Integer.parseInt(jTCodigo.getText());
+    
+      for(Materia m:md.listarMaterias()){
+                   if(id==m.getIdMateria()){
+          tablaMateriaVista.addRow(new Object []{m.getIdMateria(),m.getNombre(),m.getAnio(),false});
+                 }
+          }             
+      for(Materia m: md.listarMaterias()){
+            if( id ==m.getIdMateria()){
+               
+               jTCodigo.setText(id+"");
+               jTNombre.setText(m.getNombre());
+               jTAño.setText(m.getAnio()+"");
+               jrbEstado.setSelected(false);
+               
+               md.eliminarMateria(id);          
+               JOptionPane.showMessageDialog(null,"Materia "+id+":"+" Eliminada") ;
+            }
+            
+        }
+    }//GEN-LAST:event_jBEliminarActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTable TablaMateria;
     private javax.swing.JButton jBBuscar;
     private javax.swing.JButton jBEliminar;
     private javax.swing.JButton jBGuardar;
@@ -186,10 +318,45 @@ public class FormularioDerMateria extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JRadioButton jRadioButton1;
+    private javax.swing.JPanel jPanel2;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JTextField jTAño;
     private javax.swing.JTextField jTCodigo;
     private javax.swing.JTextField jTNombre;
+    private javax.swing.JRadioButton jrbEstado;
     // End of variables declaration//GEN-END:variables
+
+
+    
+ public void cabecera(){
+    tablaMateriaVista.addColumn("Codig¡o");
+    tablaMateriaVista.addColumn("Nombre");
+    tablaMateriaVista.addColumn("Año");
+    tablaMateriaVista.addColumn("Estado");
+    TablaMateria.setModel(tablaMateriaVista);
+}
+public void cargarTabla(int id){
+    for(Materia m:md.listarMaterias()){
+        if(id==m.getIdMateria()){
+    
+        tablaMateriaVista.addRow(new Object []{m.getIdMateria(),m.getNombre(),m.getAnio(),m.isEstado()});
+        }
+        }
+    }
+public void borrarFilas(){
+    int f = TablaMateria.getRowCount()-1;
+    for(;f>=0;f--){
+        tablaMateriaVista.removeRow(f);
+    }
+}
+public void reiniciar(){
+    jTCodigo.setText("");
+    jTNombre.setText("");
+    jTAño.setText("");
+    jrbEstado.setSelected(false);
+}
+
+
+
 }
